@@ -38,11 +38,6 @@ card.innerHTML = `<div class="card"  id ="book-${i}"">
 
 
 </div>`
-
-
-body.appendChild(card);
-
-}
 function deleteItem(cardIndex) {
     myLibrary.splice(cardIndex,1)
 
@@ -58,7 +53,7 @@ function deleteItem(cardIndex) {
         <div class="author">By ${myLibrary[i].author}</div>
         <div class="pages">${myLibrary[i].pages} pages</div>
         <div class="read">${myLibrary[i].read}</div>
-        <button class="delete" onclick="deleteItem()">Delete Book</button>
+        <button class="delete" onclick="deleteItem(${myLibrary[i].index})">Delete Book</button>
         
         
         </div>`
@@ -67,6 +62,11 @@ function deleteItem(cardIndex) {
 
 }
 }
+
+body.appendChild(card);
+
+}
+
 
 //start creating the new book button function
 const newBookBtn = document.querySelector('.addnewbook');
