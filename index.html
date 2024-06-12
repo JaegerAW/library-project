@@ -13,10 +13,34 @@
     <div class="container">
         <div class="header">
             <h1 class="header-title">My Library Project</h1>
-            <button class="addnewbook">+ New Book</button>
+          
         </div>
         <div class="body">
-        
+            <div class="sidebar">
+                <h3>Add New Book</h3>
+                <div class="userinput"
+                    <label for="newtitle">Title:</label>
+                    <input type="text" id="newtitle">   
+                </div>    
+                <div class="userinput">
+                    <label for="newauthor">Author:</label>
+                    <input type="text" id="newauthor">
+
+                </div>
+                <div class="userinput">
+                    <label for="newpages">No. of Pages</label>
+                    <input type="number" id="newpages">
+                </div>
+                <div class="userinput last">
+                    <label class="lastlabel">Have you read it yet?</label>
+                    <input type="radio" id="haveread" name="checkread" value="yes"><label for='haveread' >Yes</label>
+                    <input type="radio" id="notread" name="checkread"" value="no"><label for="notread" >No</label> 
+                </div>
+                <div class="userinput">
+                    <button type="submit" id="addnewbook">Add Book</button>
+                </div>
+            </div>
+            <div class="deck"></div>
         </div>
         <div class="footer">
 

@@ -26,6 +26,8 @@ myLibrary.push(harryPotter5);
 
 
 function createDeck() {
+    while (deck.hasChildNodes()) {
+        deck.removeChild(deck.firstChild)};
     for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement('div');
 
@@ -63,9 +65,21 @@ createDeck();
 //start creating the new book button function
 
 //when add new book, const newtitle.textContent = new Book(...);
-const newBookBtn = document.querySelector('.addnewbook');
-const dialog = document.querySelector('.form');
-newBookBtn.addEventListener('click',() => {
-    dialog.showModal();
-});
+const newTitle = document.querySelector('#newtitle');
+const newAuthor = document.querySelector('#newauthor');
+const newPages = document.querySelector('#newpages');
+const newHaveRead = document.querySelector('#haveread');
+const newNotRead = document.querySelector('#notread');
+const addBookBtn = document.querySelector('#addnewbook');
+
+addBookBtn.addEventListener('click', ()=>{
+    const newBook = new Book(newTitle.value, newAuthor.value, newPages.value);
+
+ myLibrary.push(newBook);
+createDeck();
+}
+);
+
+
+
 

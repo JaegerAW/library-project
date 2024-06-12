@@ -88,6 +88,65 @@
 }
 .sidebar {
     background-color: var(--button-color);
+    display: grid;
+    grid-template-rows: 100px repeat(5, 100px) 1fr;
+    
+    font-family: "Roboto";
+    color: white;
+    gap: 10px;
+}
+
+.sidebar > h3 {
+   box-sizing: border-box;
+   padding-top: 50px;
+   padding-left: 50px;
+}
+.sidebar > .userinput {
+    padding-left: 20px;
+    padding-top: 30px;
+
+}
+.userinput {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.userinput > input {
+    box-sizing: border-box;
+    padding-right: 50px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    
+
+}
+
+.last {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.lastlabel {
+    grid-area: 1/1/2/3;
+}
+
+#addnewbook {
+    color: black;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+#addnewbook:hover {
+    background-color: #9D9E9E;
+}
+
+#addnewbook:active {
+    background-color: white;
 }
 .deck {
     display: grid;
