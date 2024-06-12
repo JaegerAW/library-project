@@ -82,15 +82,24 @@
     grid-row: 2/3;
     background-color: var(--body-color);
     display: grid;
+    grid-template-columns: 1fr 4fr;
+    
+
+}
+.sidebar {
+    background-color: var(--button-color);
+}
+.deck {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 20px;
     padding-left: 20px;
     padding-top: 20px;
     overflow: auto;
-
 }
 .card {
+    
     background-color: var(--button-color);
     font-family: "Roboto";
     color: white;

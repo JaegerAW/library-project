@@ -14,7 +14,7 @@ const harryPotter5 = new Book("Harry Potter and The Order of the Phoenix", "J.K.
 
 
 
-const body = document.querySelector('.body');
+const deck = document.querySelector('.deck');
 
 
 //push method to add book to myLibrary
@@ -41,7 +41,7 @@ card.innerHTML = `<div class="card"  id ="book-${i}"">
 
 
 </div>`
-body.appendChild(card);
+deck.appendChild(card);
 }
 }
 
@@ -53,8 +53,8 @@ createDeck();//create initial deck
 function deleteItem(cardIndex) {
     myLibrary.splice(cardIndex,1)
 
-    while (body.hasChildNodes()) {
-        body.removeChild(body.firstChild);
+    while (deck.hasChildNodes()) {
+        deck.removeChild(deck.firstChild);
     }
 createDeck();
 }
