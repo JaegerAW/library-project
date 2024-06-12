@@ -44,8 +44,19 @@
 
 
 }
-
-
+.delete {
+    background-color: #538691;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+.delete:hover {
+    background-color: #B1F0FE;
+}
+.delete:active {
+    background-color: #538691;
+}
 .form {
     height: 500px;
     background-color: pink;
@@ -89,7 +100,7 @@
 .sidebar {
     background-color: var(--button-color);
     display: grid;
-    grid-template-rows: 100px repeat(5, 100px) 1fr;
+    grid-template-rows: 100px repeat(3, 100px) 1fr 1fr;
     
     font-family: "Roboto";
     color: white;
@@ -112,7 +123,7 @@
 }
 .userinput > input {
     box-sizing: border-box;
-    padding-right: 50px;
+    padding-right: 0;
     height: 30px;
     border: none;
     border-radius: 5px;
@@ -120,11 +131,15 @@
     
 
 }
+.lastuserinput {
+    box-sizing: border-box;
+}
 
 .last {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding-top: 0;
 }
 
 .lastlabel {
