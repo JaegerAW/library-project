@@ -24,9 +24,12 @@ myLibrary.push(harryPotter3);
 myLibrary.push(harryPotter4);
 myLibrary.push(harryPotter5);
 
-for (let i = 0; i < myLibrary.length; i++) {
 
-const card = document.createElement('div');
+function createDeck() {
+    for (let i = 0; i < myLibrary.length; i++) {
+    const card = document.createElement('div');
+
+
 myLibrary[i].index = i;//add index numbers property to every new book.
 card.innerHTML = `<div class="card"  id ="book-${i}"">
 <div class="title">${myLibrary[i].title}</div>
@@ -38,39 +41,31 @@ card.innerHTML = `<div class="card"  id ="book-${i}"">
 
 
 </div>`
+body.appendChild(card);
+}
+}
+
+
+
+createDeck();//create initial deck
+
+
 function deleteItem(cardIndex) {
     myLibrary.splice(cardIndex,1)
 
     while (body.hasChildNodes()) {
         body.removeChild(body.firstChild);
     }
-    for (let i = 0; i < myLibrary.length; i++) {
-
-        const card = document.createElement('div');
-        myLibrary[i].index = i;
-        card.innerHTML = `<div class="card"  id ="book-${i}"">
-        <div class="title">${myLibrary[i].title}</div>
-        <div class="author">By ${myLibrary[i].author}</div>
-        <div class="pages">${myLibrary[i].pages} pages</div>
-        <div class="read">${myLibrary[i].read}</div>
-        <button class="delete" onclick="deleteItem(${myLibrary[i].index})">Delete Book</button>
-        
-        
-        </div>`
-       
-        body.appendChild(card);
-
-}
-}
-
-body.appendChild(card);
-
+createDeck();
 }
 
 
 //start creating the new book button function
+
+//when add new book, const newtitle.textContent = new Book(...);
 const newBookBtn = document.querySelector('.addnewbook');
 const dialog = document.querySelector('.form');
 newBookBtn.addEventListener('click',() => {
     dialog.showModal();
 });
+

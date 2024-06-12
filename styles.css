@@ -59,11 +59,11 @@
     padding: 25px;
     font-size: 25px;
 }
-label {
+.form > label {
     box-sizing: border-box;
     padding: 25px;
     text-align: right;
-    min-width: 200px;
+    width: 150px;
     padding-bottom: 5px;
     padding-right: 0;   
     
