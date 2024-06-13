@@ -141,22 +141,19 @@ const addBookBtn = document.querySelector('#addnewbook');
 
 //const readStatus = document.querySelector('input[type="radio"]');//this returns null because when the page loads, none of the radio buttons were checked. It won't change even after you've interacted with the radio buttons because it checks only after the page loads.
 
-addBookBtn.addEventListener('click', (event)=>{
-    if (newTitle && newAuthor && newPages) {
-    const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, document.querySelector('input[type="radio"]:checked').value);
+addBookBtn.addEventListener('click', (event)=>{event.preventDefault();
+    addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, document.querySelector('input[type="radio"]:checked').value )});
+ 
+function addBookToLibrary(title, author, pages, read) {
+    myLibrary.push(new Book(title, author, pages, read));
     
-    event.preventDefault();
- myLibrary.push(newBook);
+    
+    
 createDeck();
+
 }
-    else {
-        alert("Please input all data!");
-        
-    };
-
-
-} 
-);
+    
+   
 
 
 
