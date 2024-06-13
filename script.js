@@ -12,12 +12,6 @@ const harryPotter3 = new Book("Harry Potter and The Prisoner of Azkaban", 'J.K. 
 const harryPotter4 = new Book("Harry Poter and The Goblet of Fire", "J.K. Rowling", 734, 'No');
 const harryPotter5 = new Book("Harry Potter and The Order of the Phoenix", "J.K. Rowling", 870, 'No');
 
-
-
-const deck = document.querySelector('.deck');
-
-
-//push method to add book to myLibrary
 myLibrary.push(harryPotter1);
 myLibrary.push(harryPotter2);
 myLibrary.push(harryPotter3);
@@ -25,15 +19,28 @@ myLibrary.push(harryPotter4);
 myLibrary.push(harryPotter5);
 
 
+
+
+
+
+
+
+const deck = document.querySelector('.deck');
+
 function createDeck() {
+  
+  
     while (deck.hasChildNodes()) {
         deck.removeChild(deck.firstChild)};
     for (let i = 0; i < myLibrary.length; i++) {
-    const card = document.createElement('div');
 
+     
+    const card = document.createElement('div');
+    
 
 myLibrary[i].index = i;//add index numbers property to every new book.
-card.innerHTML = `<div class="card"  id ="book-${i}"">
+
+card.innerHTML = `<div class="card"">
 <div class="title">${myLibrary[i].title}</div>
 <div class="author">By ${myLibrary[i].author}</div>
 <div class="pages">${myLibrary[i].pages} pages</div>
@@ -41,15 +48,33 @@ card.innerHTML = `<div class="card"  id ="book-${i}"">
 
 <button class="delete" onclick="deleteItem(${myLibrary[i].index})">Delete Book</button>
 
+<button class="changestatus" onclick="changeStatus(${myLibrary[i]})">Change Status</button>
+
 
 </div>`
+
 deck.appendChild(card);
+
 }
 }
+
+
+    function changeStatus(book) {
+      if (book.read === "Yes") {
+        book.read = "No";
+      }
+      else if (book.read === "No") {
+        book.read = "Yes";
+        }
+    };
+   
+
 
 
 
 createDeck();//create initial deck
+
+
 
 
 function deleteItem(cardIndex) {
@@ -73,14 +98,16 @@ const newNotRead = document.querySelector('#notread');
 const addBookBtn = document.querySelector('#addnewbook');
 
 
-const readStatus = document.querySelector('input[type="radio"]:checked');//this returns null because when the page loads, none of the radio buttons were checked. It won't change even after you've interacted with the radio buttons because it checks only after the page loads.
+//const readStatus = document.querySelector('input[type="radio"]');//this returns null because when the page loads, none of the radio buttons were checked. It won't change even after you've interacted with the radio buttons because it checks only after the page loads.
 
-addBookBtn.addEventListener('click', ()=>{
+addBookBtn.addEventListener('click', (event)=>{
     const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, document.querySelector('input[type="radio"]:checked').value);
-
+    
+    event.preventDefault();
  myLibrary.push(newBook);
 createDeck();
-}
+
+} 
 );
 
 
