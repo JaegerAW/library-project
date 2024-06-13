@@ -6,11 +6,11 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-const harryPotter1 = new Book("Harry Potter and The Philosopher's Stone", 'J.K. Rowling', 309, 'No');
-const harryPotter2 = new Book('Harry Potter and The Chamber of Secrets ', 'J.K. Rowling', 341, 'No');
-const harryPotter3 = new Book("Harry Potter and The Prisoner of Azkaban", 'J.K. Rowling', 435, 'No');
-const harryPotter4 = new Book("Harry Poter and The Goblet of Fire", "J.K. Rowling", 734, 'No');
-const harryPotter5 = new Book("Harry Potter and The Order of the Phoenix", "J.K. Rowling", 870, 'No');
+const harryPotter1 = new Book("Harry Potter and The Philosopher's Stone", 'J.K. Rowling', 309, 'Not Read');
+const harryPotter2 = new Book('Harry Potter and The Chamber of Secrets ', 'J.K. Rowling', 341, 'Not Read');
+const harryPotter3 = new Book("Harry Potter and The Prisoner of Azkaban", 'J.K. Rowling', 435, 'Not Read');
+const harryPotter4 = new Book("Harry Poter and The Goblet of Fire", "J.K. Rowling", 734, 'Not Read');
+const harryPotter5 = new Book("Harry Potter and The Order of the Phoenix", "J.K. Rowling", 870, 'Not Read');
 
 myLibrary.push(harryPotter1);
 myLibrary.push(harryPotter2);
@@ -50,9 +50,7 @@ function createDeck() {
     pages.classList.add('pages');
     pages.innerText = myLibrary[i].pages + " pages";
 
-    const read = document.createElement('div');
-    read.classList.add('read');
-    read.innerText = "Read: " + myLibrary[i].read;
+    
 
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete');
@@ -61,7 +59,7 @@ function createDeck() {
 
     const changeBtn = document.createElement('button');
     changeBtn.classList.add('changestatus');
-    changeBtn.innerText = "Change Read Status";
+    changeBtn.innerText = myLibrary[i].read;
     changeBtn.addEventListener('click', () => {
         changeStatus(myLibrary[i]);
     });
@@ -70,7 +68,7 @@ function createDeck() {
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
-    card.appendChild(read);
+
     card.appendChild(deleteBtn);
     card.appendChild(changeBtn);
     deck.appendChild(card);
@@ -101,11 +99,11 @@ deck.appendChild(card);
 
 
     function changeStatus(book) {
-      if (book.read === "Yes") {
-        book.read = "No";
+      if (book.read === "Read") {
+        book.read = "Not Read";
       }
-      else if (book.read === "No") {
-        book.read = "Yes";
+      else if (book.read === "Not Read") {
+        book.read = "Read";
         }
 
         createDeck();
